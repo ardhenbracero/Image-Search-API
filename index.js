@@ -5,7 +5,7 @@ const inputElement = document.getElementById("default-search");
 const searchBtn = document.getElementById("search-button");
 const searchResults = document.querySelector('#search-results');
 const showMoreBtn = document.getElementById('showMore');
-
+const alt_image = document.getElementById('alt_description');
 
 let inputData = "";
 let page = 1;
@@ -16,27 +16,42 @@ const displayResults = (results) => {
 
 
 searchResults.innerHTML = "";
+alt_image.innerHTML = "";
     
     results.forEach((result) => {
+        const resultContainer = document.createElement("div");
         const imgElement = document.createElement("img");
-        imgElement.classList.add('unsplashImage', 'lg:w-1/3', 'sm:w-full');
+        const altText = document.createElement('p');
+        
+        resultContainer.classList.add('resultContainer', 'lg:w-1/3', 'md:w-1/2', 'sm:w-full');
+        altText.classList.add('altTextStlye', 'text-slate-950', 'text-center', 'text-lg', 'mt-2');
 
+        imgElement.classList.add('unsplashImage');
         imgElement.src = result.urls.small;
-        imgElement.alt = result.alt_description;
 
+        altText.textContent = result.alt_description;
 
-        // const unsplashImageContainer = document.querySelector(".unsplashImage");
+        
+        resultContainer.appendChild(imgElement);
+        resultContainer.appendChild(altText);
+        searchResults.appendChild(resultContainer);
 
-        searchResults.appendChild(imgElement);
 
     });
 };
+
+
+const hoverImage = () => {
+
+}
 
 const dummyResults = [
     { urls: { small: 'https://dummyimage.com/600x360' }, alt_description: 'Description 1' },
     { urls: { small: 'https://dummyimage.com/601x361' }, alt_description: 'Description 2' },
     { urls: { small: 'https://dummyimage.com/602x362' }, alt_description: 'Description 3' },
     { urls: { small: 'https://dummyimage.com/602x362' }, alt_description: 'Description 4' },
+    { urls: { small: 'https://dummyimage.com/602x362' }, alt_description: 'Description 5' },
+    { urls: { small: 'https://dummyimage.com/602x362' }, alt_description: 'Description 6' },
     // Add more dummy results as needed
 ];
 

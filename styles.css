@@ -1,5 +1,5 @@
-.unsplashImage{
-    max-width: 100%;
+.resultContainer{
+    max-width: 600px;
     height: auto;
     padding: 20px;
 }
