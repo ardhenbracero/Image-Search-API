@@ -23,7 +23,7 @@ alt_image.innerHTML = "";
         const imgElement = document.createElement("img");
         const altText = document.createElement('p');
         
-        resultContainer.classList.add('resultContainer', 'lg:w-1/3', 'md:w-1/2', 'sm:w-full');
+        resultContainer.classList.add('resultContainer', 'lg:w-1/3', 'md:w-1/2', 'sm:w-full', 'grid', 'place-content-center');
         altText.classList.add('altTextStlye', 'text-slate-950', 'text-center', 'text-lg', 'mt-2');
 
         imgElement.classList.add('unsplashImage');
