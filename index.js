@@ -20,11 +20,24 @@ alt_image.innerHTML = "";
     
     results.forEach((result) => {
         const resultContainer = document.createElement("div");
+        const contentOverlay = document.createElement("div");
         const imgElement = document.createElement("img");
         const altText = document.createElement('p');
         
-        resultContainer.classList.add('resultContainer', 'lg:w-1/3', 'md:w-1/2', 'sm:w-full', 'grid', 'place-content-center');
-        altText.classList.add('altTextStlye', 'text-slate-950', 'text-center', 'text-lg', 'mt-2');
+        resultContainer.classList.add('resultContainer',  'resultContainer','relative','hover:content-overlay-opacity', 'lg:w-1/3', 'md:w-1/2', 'sm:w-full', 'grid', 'place-content-center');
+        contentOverlay.classList.add('content-overlay',
+        'absolute',
+        'h-99',
+        'w-full',
+        'left-0',
+        'top-0',
+        'bottom-0',
+        'right-0',
+        'opacity-0',
+        'transition-all',
+        'duration-400',
+        'ease-in-out');
+        altText.classList.add('altTextStlye', 'text-white', 'text-center', 'text-lg', 'mt-2');
 
         imgElement.classList.add('unsplashImage');
         imgElement.src = result.urls.small;
@@ -33,6 +46,7 @@ alt_image.innerHTML = "";
 
         
         resultContainer.appendChild(imgElement);
+        resultContainer.appendChild(contentOverlay);
         resultContainer.appendChild(altText);
         searchResults.appendChild(resultContainer);
 
@@ -69,20 +83,6 @@ const searchImage = async () => {
 
         displayResults(results);
 
-        // if(page === 1){
-        //     searchResults.innerHTML = "" ;
-        // }
-
-        // results.map((result) => {
-        //     const imageWrapper = document.getElementById('search-result');
-        //     const image = document.querySelectorAll('#unsplashImage');
-        //     image.src = result.urls.small
-        //     const imageConent = document.querySelectorAll('#image-content');
-        //     imageConent.textContent = result.alt_description
-       
-        //     imageWrapper.appendChild(image)
-        //     image
-        // });
 };
 
 showMoreBtn.addEventListener("click", async() => {
