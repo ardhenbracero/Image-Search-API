@@ -55,17 +55,51 @@ alt_image.innerHTML = "";
 };
 
 
-const hoverImage = () => {
+document.addEventListener('DOMContentLoaded',  () => {
 
-}
+    const page = 1;
+    const resultContainer = document.getElementById('search-results');
+    
+
+    fetch(`https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}`)
+        .then(response => response.json())
+        .then(data => {
+
+            data.results.forEach(result => {
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'lg:w-1/3 sm:w-1/2 p-4';
+
+                const image = document.createElement('img');
+                image.src = result.urls.small;
+                image.alt = result.alt_description;
+                image.className = 'w-full';
+
+                const contentOverlay = document.createElement('div');
+                contentOverlay.className = 'content-overlay';
+
+                const altDescription = document.createElement('div');
+                altDescription.textContent = result.alt_description;
+                altDescription.id = 'alt_description';
+
+                imageContainer.appendChild(contentOverlay);
+                imageContainer.appendChild(image);
+                imageContainer.appendChild(altDescription);
+                resultContainer.appendChild(imageContainer);
+
+            });
+        })
+        .catch(error => {
+            console.log("error fetching data", error);
+        });
+});
 
 const dummyResults = [
-    { urls: { small: 'https://dummyimage.com/600x360' }, alt_description: 'Description 1' },
-    { urls: { small: 'https://dummyimage.com/601x361' }, alt_description: 'Description 2' },
-    { urls: { small: 'https://dummyimage.com/602x362' }, alt_description: 'Description 3' },
-    { urls: { small: 'https://dummyimage.com/602x362' }, alt_description: 'Description 4' },
-    { urls: { small: 'https://dummyimage.com/602x362' }, alt_description: 'Description 5' },
-    { urls: { small: 'https://dummyimage.com/602x362' }, alt_description: 'Description 6' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?1' }, alt_description: 'https://source.unsplash.com/name' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?2' }, alt_description: 'Description 2' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?3' }, alt_description: 'Description 3' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?4' }, alt_description: 'Description 4' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?5' }, alt_description: 'Description 5' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?6' }, alt_description: 'Description 6' },
     // Add more dummy results as needed
 ];
 
@@ -100,3 +134,6 @@ searchForm.addEventListener("submit", async (e) => {
 
 
 
+
+
+// try to test in a single image only then after that proceed to the others
