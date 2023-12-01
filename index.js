@@ -24,7 +24,7 @@ alt_image.innerHTML = "";
         const imgElement = document.createElement("img");
         const altText = document.createElement('p');
         
-        resultContainer.classList.add('resultContainer',  'resultContainer','relative','hover:content-overlay-opacity', 'lg:w-1/3', 'md:w-1/3', 'sm:w-full', 'grid', 'place-content-center');
+        resultContainer.classList.add('resultContainer',  'resultContainer','relative','hover:content-overlay-opacity', 'lg:w-1/3', 'md:w-1/2', 'sm:w-full', 'grid', 'place-content-center');
         contentOverlay.classList.add('content-overlay',
         'absolute',
         'h-99',
