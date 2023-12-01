@@ -24,7 +24,7 @@ alt_image.innerHTML = "";
         const imgElement = document.createElement("img");
         const altText = document.createElement('p');
         
-        resultContainer.classList.add('resultContainer',  'resultContainer','relative','hover:content-overlay-opacity', 'lg:w-1/3', 'md:w-1/2', 'sm:w-full', 'grid', 'place-content-center');
+        resultContainer.classList.add('resultContainer',  'resultContainer','relative','hover:content-overlay-opacity', 'lg:w-1/3', 'md:w-1/3', 'sm:w-full', 'grid', 'place-content-center');
         contentOverlay.classList.add('content-overlay',
         'absolute',
         'h-99',
@@ -94,14 +94,15 @@ document.addEventListener('DOMContentLoaded',  () => {
 });
 
 const dummyResults = [
-    { urls: { small: 'https://source.unsplash.com/featured/601x361?1' }, alt_description: 'https://source.unsplash.com/name' },
-    { urls: { small: 'https://source.unsplash.com/featured/601x361?2' }, alt_description: 'Description 2' },
-    { urls: { small: 'https://source.unsplash.com/featured/601x361?3' }, alt_description: 'Description 3' },
-    { urls: { small: 'https://source.unsplash.com/featured/601x361?4' }, alt_description: 'Description 4' },
-    { urls: { small: 'https://source.unsplash.com/featured/601x361?5' }, alt_description: 'Description 5' },
-    { urls: { small: 'https://source.unsplash.com/featured/601x361?6' }, alt_description: 'Description 6' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?1' }, alt_description: '' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?2' }, alt_description: '' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?3' }, alt_description: '' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?4' }, alt_description: '' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?5' }, alt_description: '' },
+    { urls: { small: 'https://source.unsplash.com/featured/601x361?6' }, alt_description: '' },
     // Add more dummy results as needed
 ];
+
 
 displayResults(dummyResults);
 

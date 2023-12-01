@@ -3,6 +3,7 @@
     max-width: 400px;
     margin: auto;
     margin-bottom: 20px;
+    padding:5px;
 }
 .resultContainer .content-overlay{
     background-color: rgba(0,0,0,0.7);
